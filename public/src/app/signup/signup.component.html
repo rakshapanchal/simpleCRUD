@@ -1,0 +1,87 @@
+<section class="banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2>SIGNUP FORM</h2>
+                <form [formGroup]="form1" (ngSubmit)="onSubmit()">
+
+                    <div class="form-group">
+                        <label for="firstName">FirstName</label>
+                        <input type="text" formControlName="firstName" class="form-control"
+                            [ngClass]="{'is-invalid':submitted && f.firstName.errors}" />
+                        <div *ngIf="submitted && f.firstName.errors" class="lbl-err">
+                            <div *ngIf="f.firstName.errors.required">FirstName is required</div>
+                            <div *ngIf="f.firstName.errors.minlength"> Please enter a FirstName at least 3 characters.
+                            </div>
+                            <div *ngIf="f.firstName.errors.maxlength"> Please enter a FirstName at more than 8
+                                characters.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">LastName</label>
+                        <input type="text" formControlName="lastName" class="form-control"
+                            [ngClass]="{'is-invalid':submitted && f.lastName.errors}" />
+                        <div *ngIf="submitted && f.lastName.errors" class="lbl-err">
+                            <div *ngIf="f.lastName.errors.required">LastName is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ContactNumber">ContactNumber</label>
+                        <input type="text" formControlName="contactNumber" class="form-control"
+                            [ngClass]="{'is-invalid':submitted && f.contactNumber.errors}" />
+                        <div *ngIf="submitted && f.contactNumber.errors" class="lbl-err">
+                            <div *ngIf="f.contactNumber.errors.required">ContactNumber is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="emailId">EmailId</label>
+                        <input type="text" formControlName="emailId" class="form-control"
+                            [ngClass]="{'is-invalid':submitted && f.emailId.errors}" />
+                        <div *ngIf="submitted && f.emailId.errors" class="lbl-err">
+                            <div *ngIf="f.emailId.errors.required"> emailId is required </div>
+                            <div *ngIf="f.emailId.errors.pattern">Please Enter valid emailId!!</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <br>
+                        <fieldset id="group">
+                            <input type="radio" formControlName="gender" value="male"
+                                [ngClass]="{'is-invalid':submitted && f.gender.errors}">
+                            Male
+                            <input type="radio" formControlName="gender" value="female"
+                                [ngClass]="{'is-invalid':submitted && f.gender.errors}">
+                            Female
+                            <input type="radio" formControlName="gender" value="other"
+                                [ngClass]="{'is-invalid':submitted && f.gender.errors}">
+                            Other
+                        </fieldset>
+                        <div *ngIf="submitted && f.gender.errors" class="lbl-err">
+                            <div *ngIf="f.gender.errors.required"> gender is required </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" formControlName="password" class="form-control"
+                            [ngClass]="{'is-invalid':submitted && f.password.errors}" />
+                        <div *ngIf="submitted && f.password.errors" class="lbl-err">
+                            <div *ngIf="f.password.errors.required">password is required</div>
+                            <div *ngIf="f.password.errors.pattern">Enter valid password.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Register</button>
+                        <button type="reset" style="margin-left: 50px" class="btn btn-danger">Reset</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

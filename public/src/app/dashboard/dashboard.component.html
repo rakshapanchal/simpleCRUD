@@ -1,0 +1,20 @@
+<div class="container">
+  <table class="table table-striped- table-bordered table-hover table-checkable" datatable *ngIf="userList">
+    <thead>
+      <tr>
+        <th>Sr.No</th>
+        <th style="width:350px">firstName</th>
+        <th>Role</th>
+        <th>EmailId</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userList; let i=index">
+        <td>{{i+1}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.role}}</td>
+        <td>{{user.emailId}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
